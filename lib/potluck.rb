@@ -1,5 +1,5 @@
 class Potluck
-  attr_reader :date, :dishes, :menu, :category_array
+  attr_reader :date, :dishes, :menu, :category_array, :ratio_size
   def initialize(date)
     @date = date
     @dishes = []
@@ -20,11 +20,12 @@ class Potluck
       @dishes.each do |dish|
         @menu[dish.category] << dish
       end
-      @menu 
+      @menu
   end
 
   def ratio(category)
-
+    @ratio_size = (100.0 / @dishes.size) * @menu[category].size
+    format("%.2f%", @ratio_size)
   end
 
 end
