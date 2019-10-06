@@ -67,7 +67,8 @@ class PotluckTest < Minitest::Test
     @potluck.add_dish(@summer_pizza)
     @potluck.add_dish(@roast_pork)
     @potluck.add_dish(@candy_salad)
-    potluck_1 = @potluck.potluck_menu
-    assert_instance_of 50.0, @potluck.ratio 
+    @potluck.add_dish(@bean_dip)
+    @potluck.potluck_menu
+    assert_equal "50.00%", @potluck.ratio(:appetizer)
   end
 end
