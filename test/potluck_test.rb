@@ -53,5 +53,21 @@ class PotluckTest < Minitest::Test
     assert_equal "Couscous Salad", potluck_1.first.name
   end
   def test_it_has_a_menu
+    @potluck.add_dish(@couscous_salad)
+    @potluck.add_dish(@cocktail_meatballs)
+    @potluck.add_dish(@summer_pizza)
+    @potluck.add_dish(@roast_pork)
+    @potluck.add_dish(@candy_salad)
+    potluck_1 = @potluck.potluck_menu
+    assert_instance_of Hash, @potluck.menu
+  end
+  def test_menu_ratio
+    @potluck.add_dish(@couscous_salad)
+    @potluck.add_dish(@cocktail_meatballs)
+    @potluck.add_dish(@summer_pizza)
+    @potluck.add_dish(@roast_pork)
+    @potluck.add_dish(@candy_salad)
+    potluck_1 = @potluck.potluck_menu
+    assert_instance_of 50.0, @potluck.ratio 
   end
 end
